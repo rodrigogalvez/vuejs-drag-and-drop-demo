@@ -86,7 +86,7 @@ let app = new Vue({
     el: "#app",
     data: {
         boards: [
-            new CorkBoardSection("Pending Pending Pending Pending Pending Pending Pending Pending Pending Pending Pending Pending Pending Pending Pending ",
+            new CorkBoardSection("Pending",
             [
                 new PostIt("Lunita"),
                 new PostIt("Benyi"),

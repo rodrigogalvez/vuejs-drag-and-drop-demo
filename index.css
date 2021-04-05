@@ -1,3 +1,7 @@
+*[draggable=true] {
+  cursor: move;
+}
+
 .crockboard {
   background-color: #777;
   padding-top: 2px;
@@ -36,7 +40,7 @@
 .crockboard .crockboard-dropzone {
   box-sizing: border-box;
   font-size: 0px;
-  min-height: 10rem;
+  min-height: 12rem;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -60,6 +64,7 @@
   display: inline-block;
   vertical-align: top;
   box-sizing: border-box;
+  cursor: move;
 }
 
 .crockboard .crockboard-element:hover {
@@ -81,8 +86,8 @@
   }
 
   .crockboard .crockboard-ribbon {
-    width: 22rem;
-    min-width: 22rem;
+    width: 24rem;
+    min-width: 24rem;
     height: 100%;
     overflow-y: scroll;
     margin-left: 2px;
