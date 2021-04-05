@@ -14,15 +14,30 @@
         <a href="https://medium.com/swlh/how-to-add-drag-and-drop-to-your-vuejs-project-3fc36e7b766a">How to Add Drag
             and Drop to Your VueJS Project</a>.
     </p>
+    <p>Notar que el Drag And Drop no funciona en dispositivos móviles. Para corregir esto, recomiendo usar <a
+            href="https://github.com/Bernardo-Castilho/dragdroptouch">este PolyFill de Bernardo Castillo</a>. Este
+        PolyFill tiene un pequeño error en la línea 152 que no permite que fucnione en notebook/laptop con touch-screen. Corregir como sigue:</p>
+    <p>Donde dice:</p>
+    <pre>
+            // listen to touch events
+            if ('ontouchstart' in document) {
+    </pre>
+    <p>Debe decir:</p>
+    <pre>
+            // listen to touch events
+            if (navigator.maxTouchPoints) {
+    </pre>
+    <p>La detección de touch-screen usando navigator.maxTouchPoints es más general.</p>
+    <p>Para probar el Drag And Drop, tome cualquier papeleta y cambiela de bloque o de orden.</p>
     <div id="app">
         <div class="crockboard">
-            <div class="crockboard-ribbon" v-for="board of boards" :key="board.id" @drop="dropOnList($event, board.id)" @dragover.prevent
-                @dragenter.prevent>
+            <div class="crockboard-ribbon" v-for="board of boards" :key="board.id" @drop="dropOnList($event, board.id)"
+                @dragover.prevent @dragenter.prevent>
                 <div class="crockboard-title">{{board.title}}</div>
                 <div class="crockboard-container">
                     <div class="crockboard-dropzone">
-                        <div v-for="postIt in board.content" class="crockboard-element" :key="postIt.id" :style="postIt.style"
-                            draggable="true" @dragstart="startDrag($event, board.id, postIt.id)"
+                        <div v-for="postIt in board.content" class="crockboard-element" :key="postIt.id"
+                            :style="postIt.style" draggable="true" @dragstart="startDrag($event, board.id, postIt.id)"
                             @drop="dropOnElement($event, board.id, postIt.id)">
                             {{ postIt.text }}
                         </div>
