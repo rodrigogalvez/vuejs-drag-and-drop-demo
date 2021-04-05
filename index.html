@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Basado en el artículo de Matt Maribojoc
+        <a href="https://medium.com/swlh/how-to-add-drag-and-drop-to-your-vuejs-project-3fc36e7b766a">How to Add Drag
+            and Drop to Your VueJS Project</a>.
+    </p>
+    <div id="app">
+        <div class="crockboard">
+            <div class="crockboard-ribbon" v-for="board of boards" :key="board.id" @drop="dropOnList($event, board.id)" @dragover.prevent
+                @dragenter.prevent>
+                <div class="crockboard-title">{{board.title}}</div>
+                <div class="crockboard-container">
+                    <div class="crockboard-dropzone">
+                        <div v-for="postIt in board.content" class="crockboard-element" :key="postIt.id" :style="postIt.style"
+                            draggable="true" @dragstart="startDrag($event, board.id, postIt.id)"
+                            @drop="dropOnElement($event, board.id, postIt.id)">
+                            {{ postIt.text }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

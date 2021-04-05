@@ -1,0 +1,109 @@
+.crockboard {
+  background-color: #777;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  box-sizing: content-box;
+  font-size: 0px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  box-sizing: border-box;
+}
+
+.crockboard .crockboard-ribbon {
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  box-sizing: border-box;
+}
+
+.crockboard .crockboard-title {
+  box-sizing: border-box;
+  font-size: 1rem;
+  display: block;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+/* .crockboard .crockboard-container {
+  box-sizing: border-box;
+} */
+
+.crockboard .crockboard-dropzone {
+  box-sizing: border-box;
+  font-size: 0px;
+  min-height: 10rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  align-content: flex-start;
+  box-sizing: border-box;
+}
+
+.crockboard .crockboard-element {
+  font-size: initial;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  width: 8rem;
+  min-width: 8rem;
+  height: 8rem;
+  min-height: 8rem;
+  box-shadow: 0rem 0rem 0.5rem 0rem rgb(0 128 160 / 25%);
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+.crockboard .crockboard-element:hover {
+  box-shadow: 0rem 0rem 0.5rem 0rem rgb(0 128 160 / 75%);
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 48rem) {
+}
+
+@media screen and (min-width: 64rem) {
+  .crockboard {
+    flex-direction: row;
+    overflow-x: scroll;
+    height: 36rem;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 8px;
+  }
+
+  .crockboard .crockboard-ribbon {
+    width: 22rem;
+    min-width: 22rem;
+    height: 100%;
+    overflow-y: scroll;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  .crockboard .crockboard-title {
+    position: sticky;
+    z-index: 1;
+    top: 0rem;
+    background-color: inherit;
+  }
+
+  .crockboard .crockboard-dropzone {
+    overflow-x: hidden;
+    min-height: 100%;
+    flex-wrap: wrap;
+    width: initial;
+    align-content: flex-start;
+  }
+}
+
+@media screen and (min-width: 75rem) {
+}
